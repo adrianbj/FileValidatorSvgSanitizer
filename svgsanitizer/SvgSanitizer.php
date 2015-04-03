@@ -4,7 +4,7 @@
  *
  *  Whitelist-based PHP SVG sanitizer.
  *
- *  @link https://github.com/alister-/SVG-Sanitizer}
+ *  @link https://github.com/alnorris/SVG-Sanitizer
  *  @author Alister Norris
  *  @copyright Copyright (c) 2013 Alister Norris
  *  @license http://opensource.org/licenses/mit-license.php The MIT License
@@ -12,7 +12,7 @@
  *
  *  Modified by Adrian Jones to fix some bugs (mostly iteration mistakes)
  *  - save sanitized version back to original file
- *  - move whitelist from here to a field setting in PW
+ *  - move whitelist from here into whitelist.json
  */
 
 class SvgSanitizer {
