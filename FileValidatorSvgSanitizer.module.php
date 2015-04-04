@@ -5,16 +5,16 @@
  *
  * Validates and/or sanitizes SVG files, for ProcessWire 2.5.25 or newer.
  *
- * Optionally override any settings in your /site/config.php file: 
+ * Optionally override any settings in your /site/config.php file:
  *
  * $config->FileValidatorSvgSanitizer = array(
- * 
+ *
  *	// override global whitelist (see whitelist.json for default)
  *	'whitelist' => array or JSON string,
- * 
+ *
  *	// override whitelist on a per-field basis (replace "fieldname"):
- *	'whitelist_fieldname' => array or JSON string, 
- * 
+ *	'whitelist_fieldname' => array or JSON string,
+ *
  *	// override sanitize vs. validate on a per-field basis (replace "fieldname"):
  *	// note that default behavior is configured with module interactively
  *	'sanitize_fieldname' => true to allow sanitize, or false to disallow
@@ -29,11 +29,12 @@ class FileValidatorSvgSanitizer extends FileValidatorModule {
 	public static function getModuleInfo() {
 		return array(
 			'title' => 'Validate SVG files',
-			'summary' => 'Validates and/or sanitizes SVG files.', 
-			'version' => 1, 
+			'summary' => 'Validates and/or sanitizes SVG files.',
+			'version' => 1,
 			'author' => 'Adrian and Ryan',
-			'autoload' => false, 
-			'singular' => false, 
+			'href' => 'http://modules.processwire.com/modules/file-validator-svg-sanitizer/',
+			'autoload' => false,
+			'singular' => false,
 			'validates' => array('svg')
 		);
 	}
@@ -96,25 +97,25 @@ class FileValidatorSvgSanitizer extends FileValidatorModule {
 	}
 
 	/**
-	 * Is the given SVG file valid? 
+	 * Is the given SVG file valid?
 	 *
-	 * This is for implementation of PW's FileValidator interface. 
-	 * 
+	 * This is for implementation of PW's FileValidator interface.
+	 *
 	 * This method should return:
 	 * - boolean TRUE if file is valid
 	 * - boolean FALSE if file is not valid
 	 * - integer 1 if file is valid as a result of sanitization performed by this method
-	 * 	
-	 * If method wants to explain why the file is not valid, it should call $this->error('reason why not valid'). 
-	 * 
+	 *
+	 * If method wants to explain why the file is not valid, it should call $this->error('reason why not valid').
+	 *
 	 * @param string $filename Full path and filename to the file
 	 * @return bool|int
-	 * 
+	 *
 	 */
 	protected function isValidFile($filename) {
 
 		$whitelist = null;
-		$allowSanitize = $this->allowSanitize; 
+		$allowSanitize = $this->allowSanitize;
 		$overrides = $this->wire('config')->FileValidatorSvgSanitizer;
 		$field = $this->getField();
 
@@ -128,12 +129,12 @@ class FileValidatorSvgSanitizer extends FileValidatorModule {
 			}
 			// optional global override for whitelist
 			if(is_null($whitelist)) $whitelist = $overrides->whitelist;
-		}	
+		}
 
 		// use value configured with module if not overridden
-		if(is_null($allowSanitize)) $allowSanitize = $this->allowSanitize; 
+		if(is_null($allowSanitize)) $allowSanitize = $this->allowSanitize;
 
-		$changed = $this->svg($filename, $whitelist); 
+		$changed = $this->svg($filename, $whitelist);
 
 		if($changed) {
 			// SVG file was modified
@@ -144,10 +145,10 @@ class FileValidatorSvgSanitizer extends FileValidatorModule {
 				// sanitization it not allowed, so file is invalid
 				return false;
 			}
-		} 
+		}
 
 		// no changes necessary to file, so it is valid
-		return true; 
+		return true;
 	}
 
 

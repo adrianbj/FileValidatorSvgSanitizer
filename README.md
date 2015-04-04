@@ -10,6 +10,7 @@ To learn about potential security issues with SVG files, and why this module is 
 http://www.ei.rub.de/media/hgi/veroeffentlichungen/2011/10/19/svgSecurity-ccs11.pdf
 https://www.hackinparis.com/slides/hip2k11/09-TheForbiddenImage.pdf
 
+Forum support thread: https://processwire.com/talk/topic/9556-svg-sanitizer/
 
 ## License
 
