@@ -1,6 +1,8 @@
 File Validator SVG Sanitizer
 =======================
 
+# This module is no longer maintained. It has been replaced by: https://github.com/ryancramerdesign/FileValidatorSvgSanitizer
+
 This module extends the FileValidatorModule class (requires PW 2.5.25 or better).
 
 SVG file are scanned and elements checked against a configurable whitelist.
